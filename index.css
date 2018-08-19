@@ -1,0 +1,190 @@
+html{
+	min-width: 630px;
+	background: #CFD0CF;
+}
+header{
+	text-align: center;
+	line-height: 47px;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 42px;
+	color: #434344;
+	margin-bottom: 40px;
+	margin-top: 40px;
+}
+.table{
+	display: grid;
+	grid-template-rows: 130px 130px 130px; 
+	grid-template-columns: 130px 130px 130px 130px;
+	grid-gap: 25px;
+	justify-content: center;
+}
+.table  > div{
+	border-radius: 9px;
+}
+.table div{
+	border-radius: 9px;
+}
+
+.front, .back{
+	backface-visibility: hidden;
+	position: absolute;
+	top:0;
+	left: 0;
+}
+.back{
+	z-index: 2;
+}
+
+.front{
+	width: 130px;
+	height: 130px;
+	background: white;
+	transform: rotateY(180deg);
+	box-shadow: 1px 1px 5px black;
+
+	font-size: 75px;
+	text-align: center;
+
+}
+
+.table{
+perspective: 600px;
+}
+
+div[class^="card"]{
+	transition: transform 1s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+div[class^="card"]:hover{
+	cursor: pointer;
+}
+
+div[class^="card"].flip{
+	transform: rotateY(180deg);
+}
+
+.back{
+	width: 120px;
+	height: 120px;
+	background: linear-gradient(to top right,#22AB93,#19668D);
+	border-color: white;
+	border-width: 5px;
+	border-style: solid; 
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+div[class^="card"].notEqually{
+	background-color: red;
+}
+
+div[class^="card"].equally{
+	background-color: green;
+}
+
+.noneActive{
+	pointer-events: none;
+	transform: rotateY(180deg);
+}
+
+#timer{
+	margin: 30px auto;
+	text-align: center;
+	font-size: 32px;
+	line-height: 36px;
+	font-family: 'Arial';
+	font-weight: bold;
+	color: #434344;
+
+}
+#timer div{
+	display: inline;
+}
+
+.modal {
+
+    position: fixed;
+    display: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    background: rgba(0,0,0,0.7);
+}
+
+.modal_body{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: flex-start;
+	position: absolute;
+	left: 50%;
+	top: 35%;
+	transform: translateX(-50%);
+	background-color: white;
+
+	min-width: 350px;
+}
+
+.text{
+	display: block;
+	position: relative;
+	margin-top: 30px;
+	margin-bottom: 40px;
+	font-size: 0;
+	text-align: center;
+	color: #434344;
+	font-family: 'Arial';
+	font-weight: bold;
+}
+.text span{
+	font-size: 48px;
+}
+
+.modal .modal_body button{
+	height: 40px;
+	align-self: center;
+	background: linear-gradient(to right,#19668D,#22AB93);
+	margin-bottom: 30px;
+	border-radius: 9px;
+	border: 0;
+	box-shadow: 1px 1px 1px;
+}
+
+.modal .modal_body button:focus{
+	box-shadow: inset 2px 1px 8px;
+}
+
+button p{
+	font-size: 20px;
+	text-align: center;
+	color: white;
+	font-family: 'Arial';
+	font-weight: bold;
+	margin: 0 30px;
+}
+@keyframes fontSize{
+	50%{transform: scaleY(1.5)}
+	100%{transform: scaleY(1)}
+}
+span{
+	display: inline-block;
+	animation-name: fontSize;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in;
+}
+span:nth-child(1){
+	animation-delay: 0s;
+}
+span:nth-child(2){
+	animation-delay: 0.2s;
+}
+span:nth-child(3){
+	animation-delay: 0.4s;
+}
+span:nth-child(4){
+	animation-delay: 0.6s;
+}
